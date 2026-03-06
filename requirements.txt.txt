@@ -1,0 +1,7 @@
+streamlit
+pandas
+gspread
+matplotlib
+langchain-google-genai
+langchain-experimental
+google-auth
