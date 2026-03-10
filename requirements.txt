@@ -5,3 +5,4 @@ matplotlib
 langchain-google-genai
 langchain-experimental
 google-auth
+tabulate
