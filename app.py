@@ -11,18 +11,19 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 # ==========================================
 GEMENI_API_KEY = st.secrets["GEMENI_API_KEY"]
 GOOGLE_SHEET_URL = st.secrets["GOOGLE_SHEET_URL"]
-SERVICE_ACCOUNT_FILE = "C:\Users\Razer55\Downloads\Workout_LLM\API_Keys\credentials.json"
+#SERVICE_ACCOUNT_FILE = "C:\Users\Razer55\Downloads\Workout_LLM\API_Keys\credentials.json"
 APP_PASSWORD = st.secrets["APP_PASSWORD"]
 
 # --- SYSTEM PROMPT ---
 SYSTEM_CONTEXT = """
 You are a senior data analyst. 
-1. When asked for trends, averages, or comparisons, ALWAYS try to create a chart (line chart, bar chart, or histogram) using matplotlib.
+1. When asked for trends, averages, or comparisons, only create a chart when the user specifies that is what they wish to see (line chart, bar chart, or histogram) using matplotlib.
 2. Use clear labels and titles for any charts you create.
 3. If you create a chart, finish your thought by explaining what the chart shows.
 4. If a calculation is requested, show the steps.
 5. If you are unsure what the user is asking, always ask clarifying questions until you are sure you can answer accurately
 6. Understand that the questions will be based on a workout log data set, so use your best knowledge to use and understand the terms popular in the world of strength training and bodybuilding
+7. Only answer questions related to this dataset
 
 Use the following data dictionary to understand the data:
 -Row meaning: each unique row represents a distinct set that was performed
@@ -118,7 +119,7 @@ try:
         elif msg["type"] == "chart":
             st.chat_message("assistant").pyplot(msg["content"])
 
-    if prompt := st.chat_input("Ex: 'Draw a line chart of the last 30 days of sales'"):
+    if prompt := st.chat_input("Ex: 'Draw a line chart of the last 30 days of Smith Incline Bench'"):
         st.session_state.messages.append({"role": "user", "content": prompt, "type": "text"})
         st.chat_message("user").write(prompt)
 
