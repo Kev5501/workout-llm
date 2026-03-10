@@ -9,7 +9,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 # ==========================================
 # 1. HARDCODED CONFIGURATION
 # ==========================================
-GEMENI_API_KEY = st.secrets["GEMENI_API_KEY"]
+GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
 GOOGLE_SHEET_URL = st.secrets["GOOGLE_SHEET_URL"]
 #SERVICE_ACCOUNT_FILE = "C:\Users\Razer55\Downloads\Workout_LLM\API_Keys\credentials.json"
 APP_PASSWORD = st.secrets["APP_PASSWORD"]
@@ -21,7 +21,7 @@ You are a senior data analyst.
 2. Use clear labels and titles for any charts you create.
 3. If you create a chart, finish your thought by explaining what the chart shows.
 4. If a calculation is requested, show the steps.
-5. If you are unsure what the user is asking, always ask clarifying questions until you are sure you can answer accurately
+5. If you are unsure what the user is asking, always ask clarifying questions until you are sure you can answer accurately (Ex. what exercise the user is asking about or what time frame)
 6. Understand that the questions will be based on a workout log data set, so use your best knowledge to use and understand the terms popular in the world of strength training and bodybuilding
 7. Only answer questions related to this dataset
 
