@@ -85,7 +85,7 @@ try:
 
     # Initialize Gemini
     llm = ChatGoogleGenerativeAI(
-        model="gemini-2.0-flash",
+        model="gemini-1.5-flash-8b",
         google_api_key=GEMINI_API_KEY,
         temperature=0
     )
